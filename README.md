@@ -1,68 +1,88 @@
-Lung Cancer Detection Web Application
+Pulmonary Cancer Detection Using Deep Learning
 
-This repository contains a Flask-based web application that uses a CNN model built with TensorFlow to detect and classify lung nodules from CT scan images. The model is trained to predict different types of lung cancer with the highest algorithm accuracy. The web application allows users to upload CT scan images and returns predictions based on the trained model.
+This project aims to detect and classify lung nodules in CT scan images to aid in the early diagnosis of pulmonary cancer. The project utilizes a Convolutional Neural Network (CNN) for feature extraction and classification of the images. The implementation is done using Python, TensorFlow, and Keras within a Jupyter notebook running in Google Colab. Additionally, a Flask-based website is provided where users can upload CT scan images and receive predictions.
 
-Features-
-* Upload CT scan images through the web interface.
-* Predicts the type of lung cancer using a CNN model.
-* Real-time analysis with the highest accuracy based on model performance.
-* Simple and user-friendly interface powered by Flask.
-* Ngrok integration for easy local-to-web access and testing.
-  
-Prerequisites-
+^--Table of Contents--^
 
-Before running the project, ensure you have the following installed:
-* Python 3.x
-* TensorFlow
-* Flask
-* OpenCV
-* Ngrok
-* Numpy
-* Matplotlib
-  
-You can install the necessary libraries by running:
-pip install -r requirements.txt
-Getting Started
-Clone the repository:
-git clone https://github.com/yourusername/lung-cancer-detection.git
-cd lung-cancer-detection
-Train the model (Optional):
+* Overview
+* Dataset
+* Requirements
+* Installation
+* Model
+   * Simple CNN Model
+   * CNN Model with Dropout Layers
+   * CNN Model with Data Augmentation Layers
+   * CNN Model with Filters in All Layers
+* How to Run
+* Results
+* Website
+* Contributing
+* Contact
 
-If you wish to retrain the model, ensure your dataset is in the correct directory and modify the paths in the script accordingly.
-python train_model.py
-Run the Flask web app:
-python app.py
-Use Ngrok for external access:
-If testing externally, open a tunnel to the Flask application using Ngrok:
-ngrok http 5000
-Copy the public URL from Ngrok to access the web app.
+^--Overview--^
+Pulmonary cancer is one of the leading causes of cancer-related deaths worldwide. Early detection is crucial for improving survival rates. This project focuses on building a deep learning model to classify lung nodules as cancerous or non-cancerous, based on CT scan images.
 
-Project Structure
-plaintext
-Copy code
-lung-cancer-detection/
-│
-├── models/                # CNN model and training scripts
-├── static/                # CSS and images for the web app
-├── templates/             # HTML templates for the web app
-├── app.py                 # Flask application file
-├── train_model.py         # Model training script
-├── requirements.txt       # Python dependencies
-└── README.md              # Project overview
+The project includes the following components:
+--Data loading and preprocessing
+--Model architecture using Convolutional Neural Networks (CNNs)
+--Model training and evaluation
+--A website interface for users to upload CT scan images for predictions
 
-How It Works-
-Upload Image: Users upload CT scan images via the web interface.
-Model Prediction: The CNN-based model processes the image and predicts the type of cancer (adenocarcinoma, large-cell carcinoma, squamous cell carcinoma, or normal).
-Display Results: The web app displays the prediction and the model's accuracy.
-Model Details
-The CNN model was developed using TensorFlow and trained on a dataset of labeled CT scan images. The model uses convolutional layers to extract features and fully connected layers for classification.
 
-Future Improvements-
-Enhance model accuracy through data augmentation and hyperparameter tuning.
-Add support for additional types of cancer.
-Deploy the application using a production-ready server.
-License
-This project is licensed under the MIT License.
+^--Dataset--^
+The dataset used for this project consists of CT scan images and can be accessed (https://drive.google.com/drive/folders/1vcsE0Ue916DkwpVl2ZkST3TeBFkjMgtO?usp=sharing). It contains labeled data of lung nodules, which are used for training and evaluating the models.
 
-Contact
-For any inquiries or suggestions, feel free to contact me at [vankayalapatijaashvitha@gmail.com].
+^--Requirements--^
+The following Python libraries are required to run this project:
+--TensorFlow
+--Keras
+--scikit-learn
+--matplotlib
+--pandas
+--numpy
+You can install these dependencies by running:
+pip install tensorflow keras scikit-learn matplotlib pandas numpy
+
+^--Installation--^
+To run the project locally or on Google Colab, follow these steps:
+
+--Clone the repository:
+        git clone https://github.com/your-username/pulmonary-cancer-detection.git
+        cd pulmonary-cancer-detection
+--Install the required libraries:
+        pip install -r requirements.txt
+--To run in Google Colab, upload the notebook file (pulmonary_cancer_detection_using_deep_learning.ipynb) and ensure all necessary dependencies are installed.
+
+^--Model--^
+This project explores multiple CNN architectures for lung cancer detection. The models include:
+
+** Simple CNN Model
+     A straightforward convolutional neural network with basic layers (convolutional, pooling, and dense).
+     Suitable for baseline comparisons.
+** CNN Model with Dropout Layers
+     Includes dropout layers to prevent overfitting by randomly setting units to zero during training.
+     Helps improve model generalization.
+** CNN Model with Data Augmentation Layers
+     Implements data augmentation (e.g., rotation, zoom, shift) to artificially expand the training dataset.
+     Reduces overfitting and enhances model performance by introducing variability.
+** CNN Model with Filters in All Layers
+     This model uses filters in all layers to capture more complex features.
+     The architecture includes multiple convolutional layers with filters applied across all layers, leading to better feature extraction.
+     
+^--How to Run--^
+1.Open the Jupyter notebook (pulmonary_cancer_detection_using_deep_learning.ipynb) in your local environment or in Google Colab.
+2.Follow the steps in the notebook for data loading, preprocessing, model training, and evaluation.
+3.You can modify hyperparameters, models, and other settings within the notebook to experiment with the different CNN architectures.
+4.To test the website, refer to the provided Flask files. The website allows users to upload CT scan images and get predictions on the cancer type.
+
+^--Results--^
+The results from each model, including accuracy, loss, and confusion matrix, are documented in the notebook. Each model has been evaluated, and the final CNN model with data augmentation and filters showed the highest accuracy in classifying lung nodules.
+
+^--Website--^
+A website has been developed using Flask, where users can upload their CT scan images and receive predictions based on the trained model. You can check out the Flask application files in this repository for more details.
+
+^--Contributing--^
+Contributions are welcome! Feel free to submit issues or pull requests to help improve the project. Please make sure your code adheres to the existing style guidelines and is well-documented.
+
+^--Contact--^
+If you have any questions or doubts, feel free to contact me via email at vankayalapatijaashvitha@gmail.com.
